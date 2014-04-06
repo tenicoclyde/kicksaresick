@@ -1,4 +1,16 @@
 KicksAreSick::Application.routes.draw do
+  get "brand/index"
+  get "brand/show"
+  get "brand/new"
+  get "brand/create"
+  get "brand/edit"
+  get "brand/destroy"
+  get "category/index"
+  get "category/show"
+  get "category/new"
+  get "category/create"
+  get "category/edit"
+  get "category/destroy"
   resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
