@@ -1,4 +1,17 @@
 KicksAreSick::Application.routes.draw do
+  get "orders/index"
+  get "orders/show"
+  get "orders/new"
+  get "orders/edit"
+  get "orders/create"
+  get "orders/update"
+  get "orders/destroy"
+  get "customer/index"
+  get "customer/new"
+  get "customer/show"
+  get "customer/edit"
+  get "customer/update"
+  get "customer/destroy"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get "brand/index"
