@@ -12,7 +12,7 @@ ActiveAdmin.register Product do
     column :created_at
     default_actions
   end
-  
+
   
   permit_params :name, :description, :category_id, :brand_id, :quantity ,:price, :image
     
