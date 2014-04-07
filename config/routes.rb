@@ -1,4 +1,11 @@
 KicksAreSick::Application.routes.draw do
+  get "line_items/index"
+  get "line_items/show"
+  get "line_items/new"
+  get "line_items/edit"
+  get "line_items/create"
+  get "line_items/update"
+  get "line_items/destroy"
   get "orders/index"
   get "orders/show"
   get "orders/new"
