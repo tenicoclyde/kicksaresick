@@ -1,5 +1,6 @@
 ActiveAdmin.register Product do
   index do
+    column :image
     column :name
     column :description
     column :category_id
@@ -12,7 +13,8 @@ ActiveAdmin.register Product do
     default_actions
   end
   
-  permit_params :name, :description, :category_id, :brand_id, :quantity ,:price
+  
+  permit_params :name, :description, :category_id, :brand_id, :quantity ,:price, :image
     
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
