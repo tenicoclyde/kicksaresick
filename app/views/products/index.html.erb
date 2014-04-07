@@ -21,9 +21,9 @@
       <tr>
 		<td><%= image_tag product.image.url(:thumb) %></td>
         <td><%= product.name %></td>
-        <td><%= product.category_id %></td>
+        <td><%= product.category.name %></td>
         <td><%= product.description %></td>
-        <td><%= product.brand_id %></td>
+        <td><%= product.brand.name %></td>
         <td><%= product.quantity %></td>
         <td><%= product.price %></td>
         <td><%= link_to 'Show', product %></td>

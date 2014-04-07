@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.find(:all, :include => [:category,:brand])
   end
 
   # GET /products/1
