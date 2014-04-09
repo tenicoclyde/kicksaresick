@@ -1,17 +1,6 @@
-ActiveAdmin.register About do
-  permit_params :description
-  
-	form do |f|
-      f.inputs "Product Details" do
-        f.input :description, :label => "Product:"		
-      end
-      f.actions
-    end
+ActiveAdmin.register Contact do
 
-	def create
-		@product = Product.new(permit_params)
-	end 
-  
+  permit_params :email, :phone, :address
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
