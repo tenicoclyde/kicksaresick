@@ -1,4 +1,6 @@
 KicksAreSick::Application.routes.draw do
+  get "contact_us/show"
+  get "about_us/index"
   get "line_items/index"
   get "line_items/show"
   get "line_items/new"
