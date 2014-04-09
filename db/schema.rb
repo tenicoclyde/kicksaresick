@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409013932) do
+ActiveRecord::Schema.define(version: 20140409023410) do
+
+  create_table "about_us", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -111,6 +117,10 @@ ActiveRecord::Schema.define(version: 20140409013932) do
     t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "products_file_name"
+    t.string   "products_content_type"
+    t.integer  "products_file_size"
+    t.datetime "products_updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

@@ -1,12 +1,13 @@
 KicksAreSick::Application.routes.draw do
+  get "about_us/index"
+  get "about_us/show"
+  get "about_us/new"
+  get "about_us/create"
+  get "about_us/edit"
+  get "about_us/update"
+  get "about_us/destroy"
   get  'about_us',         to: 'about_us#index',     as: 'about_us'
   get  'contact_us',       to: 'contact_us#index',      as: 'contact_us'
-  get "contact_us/create"
-  get "contact_us/show"
-  get "contact_us/new"
-  get "contact_us/edit"
-  get "contact_us/destroy"
-  get "contact_us/update"
   get "line_items/index"
   get "line_items/show"
   get "line_items/new"

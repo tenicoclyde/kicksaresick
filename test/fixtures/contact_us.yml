@@ -1,11 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  phone: 1
-  address: MyString
+  index: MyString
+  show: MyString
+  new: MyString
+  create: MyString
+  edit: MyString
+  update: MyString
+  destroy: MyString
 
 two:
-  email: MyString
-  phone: 1
-  address: MyString
+  index: MyString
+  show: MyString
+  new: MyString
+  create: MyString
+  edit: MyString
+  update: MyString
+  destroy: MyString

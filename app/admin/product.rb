@@ -18,6 +18,19 @@ ActiveAdmin.register Product do
 		@product = Product.new(permit_params)
 	end 
   
+  index do
+    column :name
+    column :description
+    column :category
+    column :quantity
+    column :brand
+    column :image_file_name
+    column :price do |product|
+        number_to_currency product.price
+    end
+    column :created_at
+    default_actions
+  end
   
   permit_params  :name, :description, :category_id, :brand_id, :quantity ,:price, :image, :delete_image, :remove_photo
     
