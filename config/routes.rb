@@ -1,7 +1,7 @@
 KicksAreSick::Application.routes.draw do
-  get "homepage/index"
-  get 'contact_us',   to: 'contact#index', as:'contact'
-  get  'about_us',         to: 'about#index',     as: 'about'
+  get 'homepage',     to: 'homepage#index', as: 'index'
+  get 'contact_us',   to: 'contact#index', as: 'contact'
+  get  'about_us',         to: 'about#index',     as: 'about_us'
   get  'product',       to: 'products#index',      as: 'contact_us'
   root :to => "homepage#index"
   get "line_items/index"
