@@ -1,4 +1,5 @@
 KicksAreSick::Application.routes.draw do
+  get "homepage/index"
   get 'contact_us',   to: 'contact#index', as:'contact'
   get  'about_us',         to: 'about#index',     as: 'about'
   get  'product',       to: 'products#index',      as: 'contact_us'
