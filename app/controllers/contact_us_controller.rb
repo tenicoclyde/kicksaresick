@@ -9,7 +9,7 @@ class ContactUsController < ApplicationController
   
   def create
     @contact = ContactUs.new(contact_params)
-    
+    @contact.save
   end
   
   def new
@@ -22,8 +22,7 @@ class ContactUsController < ApplicationController
   private 
   
   def contact_params
-    params.require(:contactus).permit(:email, :phone, :address)
-    
+    params.require(:contact_us).permit(:email, :phone, :address)  
   end
   
 end
