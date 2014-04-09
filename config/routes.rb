@@ -1,4 +1,11 @@
 KicksAreSick::Application.routes.draw do
+  get "about/index"
+  get "about/show"
+  get "about/new"
+  get "about/edit"
+  get "about/update"
+  get "about/create"
+  get "about/destroy"
   get "about_us/index"
   get "about_us/show"
   get "about_us/new"
