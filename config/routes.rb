@@ -1,6 +1,6 @@
 KicksAreSick::Application.routes.draw do
-  get "contact_us/show"
-  get "about_us/index"
+  get  'about_us',         to: 'about_us#index',     as: 'about_us'
+  get  'contact_us',       to: 'contact_us#index',      as: 'contact_us'
   get "line_items/index"
   get "line_items/show"
   get "line_items/new"
