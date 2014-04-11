@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to        :category
   belongs_to        :brand
+  belongs_to        :sale_status
   validates         :name, :price, :quantity, presence: true
   
   
