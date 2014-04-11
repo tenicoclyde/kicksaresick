@@ -9,6 +9,7 @@ ActiveAdmin.register Product do
         f.input :image, :as => :file, :label => "Attach Image"
         f.input :remove_photo, as: :boolean, required: :false, label: 'Remove Photo'
         f.input :price, :label => "Price:"
+        f.input :onsale_price, :label => "Sale Price:"
         f.input :quantity, :label => "Quantity:"			
       end
       f.actions
