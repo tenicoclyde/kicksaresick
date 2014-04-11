@@ -4,10 +4,14 @@ class Product < ActiveRecord::Base
   belongs_to        :sale_status
   validates         :name, :price, :quantity, presence: true
   
+  attr_accessor :default_url, :default_style
   
-
-  has_attached_file :image, :styles => {:small => '50x50>', :medium => '500x500>', :thumb => '100x100>' }, :default_url => "/images/:style/missing.png"
-
+  has_attached_file :image,
+                    :styles => { :large => "500x500>", :medium => "300x300!", :thumb => "100x100>" },
+                    :default_url => "/images/:style/missing.png" 
+                   
+  
+              
   validates_attachment_size :image, :less_than => 5.megabytes
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
   

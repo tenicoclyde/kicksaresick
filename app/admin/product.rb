@@ -30,7 +30,9 @@ ActiveAdmin.register Product do
     column :price do |product|
         number_to_currency product.price
     end
-    column :onsale_price
+    column :onsale_price do |product|
+        number_to_currency product.onsale_price
+    end
     column :created_at
     default_actions
   end
