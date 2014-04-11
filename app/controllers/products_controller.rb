@@ -1,10 +1,22 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :shoes_category]
 
   # GET /products
   # GET /products.json
   def index
     @products = Product.find(:all, :include => [:category,:brand])
+  end
+  
+  def shoes_category
+    @products = Product.where('category_id = 1')
+  end
+  
+  def acc_category
+    @products = Product.where('category_id = 2')
+  end
+  
+  def equip_category
+    @products = Product.where('category_id = 3')
   end
 
   # GET /products/1

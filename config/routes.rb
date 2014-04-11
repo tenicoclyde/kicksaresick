@@ -1,44 +1,15 @@
 KicksAreSick::Application.routes.draw do
-  get 'homepage',     to: 'homepage#index', as: 'index'
-  get 'contact_us',   to: 'contact#index', as: 'contact_us'
-  get  'about_us',         to: 'about#index',     as: 'about_us'
-  get  'product',       to: 'products#index',      as: 'products'
+  get  'homepage',          to: 'homepage#index',         as: 'index'
+  get  'contact_us',        to: 'contact#index',          as: 'contact_us'
+  get  'about_us',          to: 'about#index',            as: 'about_us'
+  get  'product',           to: 'products#index',         as: 'products'
+  get  'categories',        to: 'category#index',         as: 'categories'
+  get  'shoes',             to: 'product#shoes_category', as: 'shoes'
   root :to => "homepage#index"
-  get "line_items/index"
-  get "line_items/show"
-  get "line_items/new"
-  get "line_items/edit"
-  get "line_items/create"
-  get "line_items/update"
-  get "line_items/destroy"
-  get "orders/index"
-  get "orders/show"
-  get "orders/new"
-  get "orders/edit"
-  get "orders/create"
-  get "orders/update"
-  get "orders/destroy"
-  get "customer/index"
-  get "customer/new"
-  get "customer/show"
-  get "customer/edit"
-  get "customer/update"
-  get "customer/destroy"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get "brand/index"
-  get "brand/show"
-  get "brand/new"
-  get "brand/create"
-  get "brand/edit"
-  get "brand/destroy"
-  get "category/index"
-  get "category/show"
-  get "category/new"
-  get "category/create"
-  get "category/edit"
-  get "category/destroy"
   resources :products
+  resources :category, only: [:index, :show ]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
