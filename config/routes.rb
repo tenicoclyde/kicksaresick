@@ -1,10 +1,12 @@
 KicksAreSick::Application.routes.draw do
-  get  'homepage',          to: 'homepage#index',         as: 'index'
-  get  'contact_us',        to: 'contact#index',          as: 'contact_us'
-  get  'about_us',          to: 'about#index',            as: 'about_us'
-  get  'product',           to: 'products#index',         as: 'products'
-  get  'categories',        to: 'category#index',         as: 'categories'
-  get  'shoes',             to: 'product#shoes_category', as: 'shoes'
+  get  'homepage',          to: 'homepage#index',                 as: 'index'
+  get  'contact_us',        to: 'contact#index',                  as: 'contact_us'
+  get  'about_us',          to: 'about#index',                    as: 'about_us'
+  get  'product',           to: 'products#index',                 as: 'products'
+  get  'categories',        to: 'category#index',                 as: 'categories'
+  get  'shoes',             to: 'products#shoes_category',        as: 'shoes'
+  get  'accessories',       to: 'products#acc_category',          as: 'accessories'
+  get  'equipments',        to: 'products#equip_category',        as: 'equipments'
   root :to => "homepage#index"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
