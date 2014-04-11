@@ -1,6 +1,7 @@
 <h3>Products</h3>
-<%= paginate @products %>
+
 <div id = "products">
+	<%= paginate @products %>
 <% @products.each do |product| %>
 
 	<p>
@@ -21,5 +22,7 @@
     <p><strong>Price:</strong> <%= number_to_currency product.price%></p>
 <hr>
 <% end %>
+<%= paginate @products %>
 </div>	
+
 

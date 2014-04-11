@@ -4,19 +4,20 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.find(:all, :include => [:category,:brand]).page(params[:page])
+    @products = Kaminari.paginate_array(Product.find(:all, :include => [:category,:brand])).page(params[:page]).per(3)
   end
   
   def shoes_category
-    @products = Product.where('category_id = 1')
+     @products = Kaminari.paginate_array(Product.where('category_id = 1')).page(params[:page]).per(3)
+    
   end
   
   def acc_category
-    @products = Product.where('category_id = 2')
+     @products = Kaminari.paginate_array(Product.where('category_id = 2')).page(params[:page]).per(3)
   end
   
   def equip_category
-    @products = Product.where('category_id = 3')
+     @products = Kaminari.paginate_array(Product.where('category_id = 3')).page(params[:page]).per(3)
   end
 
   # GET /products/1
