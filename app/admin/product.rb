@@ -4,6 +4,7 @@ ActiveAdmin.register Product do
       f.inputs "Product Details" do
 				f.input :category_id, :as => :select, :collection => Category.all
         f.input :brand_id, :as => :select, :collection => Brand.all
+        f.input :sale_status_id, :as => :select, :collection => SaleStatus.all
         f.input :name, :label => "Product:"
         f.input :description, :label => "Description:"
         f.input :image, :as => :file, :label => "Attach Image"
@@ -29,11 +30,12 @@ ActiveAdmin.register Product do
     column :price do |product|
         number_to_currency product.price
     end
+    column :onsale_price
     column :created_at
     default_actions
   end
   
-  permit_params  :name, :description, :category_id, :brand_id, :quantity ,:price, :image, :delete_image, :remove_photo
+  permit_params  :name, :description, :category_id, :brand_id, :quantity ,:price, :image,:onsale_price, :sale_status_id, :delete_image, :remove_photo
     
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
