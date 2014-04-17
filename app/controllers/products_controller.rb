@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Kaminari.paginate_array(Product.find(:all, :include => [:category,:brand])).page(params[:page]).per(3)
+    @products = Kaminari.paginate_array(Product.find(:all, :include => [:category,:brand], :order => "name ASC")).page(params[:page]).per(3)
   end
   
   def shoes_category

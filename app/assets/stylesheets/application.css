@@ -28,13 +28,14 @@ ul
 {
 list-style-type:none;
 margin:0 auto;
-
+border:solid 5px #ccc;
+text-decoration:none;
 }
 
 li
 {
 display:inline;
-border-style:solid;
+
 }
 
 
