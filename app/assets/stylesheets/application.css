@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+
  */
 body{
 	text-align:center;
@@ -36,6 +36,15 @@ li
 {
 display:inline;
 
+}
+
+#search{
+	position: absolute;
+	top: 0; 
+	left: 50;
+	right: 0; 
+	width: 200px; 
+	display:block;
 }
 
 

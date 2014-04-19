@@ -10,6 +10,7 @@ KicksAreSick::Application.routes.draw do
   get  'shoes',             to: 'products#shoes_category',        as: 'shoes'
   get  'accessories',       to: 'products#acc_category',          as: 'accessories'
   get  'equipments',        to: 'products#equip_category',        as: 'equipments'
+  get  'search_results',    to: 'products#search_results',        as: 'search_results'
   root :to => "homepage#index"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
