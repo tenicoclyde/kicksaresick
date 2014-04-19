@@ -24,18 +24,17 @@ body{
 	
 }
 
-ul
+#navlist
 {
 list-style-type:none;
 margin:0 auto;
 border:solid 5px #ccc;
-text-decoration:none;
+
 }
 
 li
 {
 display:inline;
-
 }
 
 #search{
@@ -43,8 +42,8 @@ display:inline;
 	top: 0; 
 	left: 50;
 	right: 0; 
-	width: 200px; 
-	display:block;
+	width: 300px; 
 }
+
 
 

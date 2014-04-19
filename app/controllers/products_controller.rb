@@ -22,7 +22,8 @@ class ProductsController < ApplicationController
   end
   
   def search_results
-    #@found_products = Product.keyword_search(params[:search_keyword])
+    keywords = params[:search_keywords]
+    @products = Kaminari.paginate_array(Product.keyword_search(params[:search_keywords])).page(params[:page]).per(3)
   end
   
 

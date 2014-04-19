@@ -23,5 +23,8 @@ class Product < ActiveRecord::Base
   		'0'
   end
   
- 
+  def self.keyword_search(keywords)
+      keywords = "%" + keywords + "%"
+      Product.where("name LIKE ? OR description LIKE ?", keywords, keywords)
+    end
 end
