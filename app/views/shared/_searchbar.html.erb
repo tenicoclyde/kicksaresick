@@ -1,13 +1,8 @@
 
-	<div id="search">
-	<ul>
-	<li><%= link_to 'Login admin', 'admin/login'%></li>
-	<li>
-			
-			<%= form_tag search_results_path, method: 'get' do %>
-			<%= text_field_tag :search_keywords %>
-			<%= submit_tag "Search" %>
-			<% end %>
-	</li>
-	</ul>
-</div>
+
+<%= form_tag search_results_path, method: 'get' do %>
+
+  <%= text_field_tag(:search_keywords) %>
+  <%= select_tag (:category_option), options_from_collection_for_select(Category.all, :id, :name), prompt: "All Categories" %>
+  <%= submit_tag "Search"%>
+<% end %>

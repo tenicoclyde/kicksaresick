@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to        :category
   belongs_to        :brand
   belongs_to        :sale_status
-  validates         :name, :price, :quantity, presence: true
+  validates         :name, :price, :category_id, :quantity, presence: true
   
   attr_accessor :default_url, :default_style
   
@@ -23,8 +23,15 @@ class Product < ActiveRecord::Base
   		'0'
   end
   
-  def self.keyword_search(keywords)
+  def self.keyword_search(keywords,category)
       keywords = "%" + keywords + "%"
+    if category == "" then
       Product.where("name LIKE ? OR description LIKE ?", keywords, keywords)
-    end
+    else
+      Product.where("name LIKE ? AND category_id = ?  OR description LIKE ? AND category_id = ?", keywords,category,keywords,category)
+      
+    end    
+    
+  end
+      
 end

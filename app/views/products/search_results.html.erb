@@ -1,2 +1,4 @@
-<h3>Search Results for '<%= params[:search_keywords] %>'</h3>
-<%= render 'shared/products' %>
+<% flash.each do |flash| %>
+  <h3><%= flash[1] %> "<%= params[:search_keywords] %>"</h3>
+<% end %>
+<%= render :partial => "shared/products", :object => @products %>
