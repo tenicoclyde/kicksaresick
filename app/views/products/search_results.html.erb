@@ -1,4 +1,4 @@
 <% flash.each do |flash| %>
-  <h3><%= flash[1] %> "<%= params[:search_keywords] %>"</h3>
+  <h3><%= flash[1] %></h3>
 <% end %>
 <%= render :partial => "shared/products", :object => @products %>

@@ -1,4 +1,8 @@
 KicksAreSick::Application.routes.draw do
+  get "provinces/index"
+  get "provinces/show"
+  get "provinces/new"
+  get "provinces/create"
   get "sale_status/index"
   get "sale_status/create"
   get "sale_status/show"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411043146) do
+ActiveRecord::Schema.define(version: 20140422235413) do
 
   create_table "about_us", force: true do |t|
     t.string   "description"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20140411043146) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "province_id"
   end
 
   create_table "hompages", force: true do |t|
@@ -147,6 +148,14 @@ ActiveRecord::Schema.define(version: 20140411043146) do
     t.decimal  "onsale_price"
     t.string   "sale_status"
     t.integer  "sale_status_id"
+  end
+
+  create_table "provinces", force: true do |t|
+    t.string   "name"
+    t.decimal  "pst"
+    t.decimal  "gst"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sale_statuses", force: true do |t|

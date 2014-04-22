@@ -24,11 +24,14 @@ class ProductsController < ApplicationController
   def search_results
      @products = Kaminari.paginate_array(Product.keyword_search(params[:search_keywords],params[:category_option])).page(params[:page]).per(3)
     
-    if @products.length == 0
-         flash[:results] = "No products found which match your selection for: "
-       else
+    if @products.length == 0 && params[:category_option] == "" 
+         flash[:results] = "No available products found which match your selection for: \"#{params[:search_keywords]}\" "
+         
+    elsif @products.length == 0 && params[:category_option] != 
+         flash[:results] = "No available products found which match your selection for: \"#{params[:search_keywords]}\" in this category " 
+    else
          flash[:results] = "Search results:"
-       end
+    end
   
          
     
