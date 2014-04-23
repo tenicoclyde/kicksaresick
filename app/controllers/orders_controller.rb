@@ -51,11 +51,11 @@ class OrdersController < ApplicationController
     session[:items] << id.to_i unless session[:items].include?(id)
     session[:quantities] << qty.to_i unless session[:items].include?(id)
     
-    redirect_to root_path
+    redirect_to cart_path
   end
   
   def cart_items
-    @cart_items = Product.find_all_by_id(session[:items])
+    @cart_items = Product.find_all_by_id(session[:items]).reverse!
     @subtotal = 0
     @price = 0.0
   end
