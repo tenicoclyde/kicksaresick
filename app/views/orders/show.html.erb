@@ -15,7 +15,7 @@
   <div id="orderinfo">
     <h4>Your Order:</h4>   
     <strong>Order Number:</strong> <%= @order.id %>
-    <strong>Order Status:</strong> <%= @order.order_status %>  
+    <strong>Order Status:</strong> <%= @order.status %>  
     <table>
       <thead>
         <tr>
@@ -28,12 +28,12 @@
         <% subtotal = 0 %>
         <% grandtotal = 0 %>
         <tbody>    
-          <% @itmes_orderd.each_with_index do |order, i| %>
+          <% @items_ordered.each_with_index do |order, i| %>
 
-          <% prod = Product.find(session[:items][i]) %>
+          <% product = Product.find(session[:items][i]) %>
       
           <tr>        
-            <td><%= prod.vendor_name %> <%= prod.product_name %></td>
+            <td><%= product.name %></td>
             <td><%= order.quantity %></td>            
             <td><%= number_to_currency(order.price) %></td>
             <td><%= number_to_currency(order.price * order.quantity) %></td>
@@ -42,9 +42,10 @@
           
           <%end%>
       </tbody>
-        <tfoot>          
-          <% gst = subtotal * @order.gst_rate %>
-          <% pst = subtotal * @order.pst_rate %>
+        <tfoot>  
+					        
+          <% gst = @order.gst %>
+          <% pst = @order.pst %>
           <tr>
             <td colspan="3"><span class="bold">Subtotal:</span> </td>
             <td><%= number_to_currency(subtotal) %></td>
@@ -63,11 +64,11 @@
         <% end %>
           <tr>
             <td colspan="3"><strong>Grand Total:</strong></td>
-            <% grandtotal = subtotal + gst + pst + hst %>
+            <% grandtotal = subtotal + gst + pst %>
             <td><%= number_to_currency(grandtotal) %></td>
           </tr>
         </tfoot>
     </table>
-    <%= button_to "Submit Order", order_thanks_path, :method => 'get', class: "btn btn-default btn-sm" %>    
+    <%= button_to "Submit Order", order_complete_path, :method => 'get', class: "btn btn-default btn-sm" %>    
   </div>
 </section>

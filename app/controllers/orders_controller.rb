@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   def show
       @order = Order.find(params[:id])
       @customer = Customer.find(@order.customer_id)
-      @items_ordered = @order.order_product.all
+      @items_ordered = @order.line_items.all
   end
   
   def new
@@ -13,15 +13,15 @@ class OrdersController < ApplicationController
         order = customer.orders.build
     
         order.status = "Pending"
-        order.pst = customer.province.pst
-        order.gst = customer.province.gst
+        pst_rate = customer.province.pst
+        gst_rate = customer.province.gst
     
         subtotal = 0
     
         session[:items].each_with_index do |item, i|
           product = Product.find(item)
           qty = session[:quantities][i]
-          line_item = order.line_item.build
+          line_item = order.line_items.build
           line_item.product_id = product.id
       
           if product.sale_status_id == 1 then
@@ -36,12 +36,12 @@ class OrdersController < ApplicationController
           line_item.save     
         end
         order.subtotal = subtotal
-        order.total_gst = (subtotal * order.gst)
-        order.total_pst = (subtotal * order.pst)
-        order.grand_total = (subtotal + order.total_gst + order.total_pst)
+        order.gst = (subtotal * gst_rate)
+        order.pst = (subtotal * pst_rate)
+        order.grandtotal = (subtotal + order.gst + order.pst)
         order.save
         
-        redirect_to order_show_path(order.id.to_i)
+        redirect_to order_review_path(order.id.to_i)
   end
 
   def add_to_cart

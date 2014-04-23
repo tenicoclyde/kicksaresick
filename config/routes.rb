@@ -1,13 +1,6 @@
 KicksAreSick::Application.routes.draw do
-  get "provinces/index"
-  get "provinces/show"
-  get "provinces/new"
-  get "provinces/create"
-  get "sale_status/index"
-  get "sale_status/create"
-  get "sale_status/show"
-  post   'customers',          to: 'customer#create'
-  get "orders/new",          to: 'orders#new',                     as: 'orders_new'
+  post   'customers',       to: 'customer#create'
+  get "orders/new",         to: 'orders#new',                     as: 'orders_new'
   get  'homepage',          to: 'homepage#index',                 as: 'index'
   get  'contact_us',        to: 'contact#index',                  as: 'contact_us'
   get  'about_us',          to: 'about#index',                    as: 'about_us'
@@ -21,6 +14,7 @@ KicksAreSick::Application.routes.draw do
   get  'cart',              to: 'orders#cart_items',              as: 'cart'
   get  'order/:id',         to: 'orders#show',                    as: 'order_review'
   get  'customer/new',      to: 'customer#new',                   as: 'new_customer'
+  get  'order_complete',    to: 'orders#index',                   as: 'order_complete'
   root :to => "homepage#index"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
