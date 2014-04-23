@@ -1,23 +1,21 @@
 class CustomerController < ApplicationController
-  def index
-  end
 
   def new
+    @customer = Customer.new
   end
 
-  def show
-  end
-
-  def edit
-  end
-  
   def create
-  
-  end
+    
+     @customer = Customer.new(customer_params)
+    
+     @customer.save
+    
+      redirect_to orders_new_path(:customer => @customer)
+   end
+   private
 
-  def update
-  end
-
-  def destroy
-  end
+   def customer_params
+     params.require(:customer).permit(:fname, :lname, :phone, :address, :city, :postal_code, :email, :province_id)
+    
+   end
 end

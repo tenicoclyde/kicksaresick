@@ -1,6 +1,6 @@
 ActiveAdmin.register Province do
 
-  
+  permit_params  :name, :gst, :pst
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

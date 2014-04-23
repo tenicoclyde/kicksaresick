@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422235413) do
+ActiveRecord::Schema.define(version: 20140423004017) do
 
   create_table "about_us", force: true do |t|
     t.string   "description"
@@ -92,12 +92,11 @@ ActiveRecord::Schema.define(version: 20140422235413) do
     t.integer  "phone"
     t.string   "address"
     t.string   "city"
-    t.string   "region"
     t.string   "postal_code"
-    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "province_id"
+    t.string   "email"
   end
 
   create_table "hompages", force: true do |t|

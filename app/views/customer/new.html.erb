@@ -1,2 +1,58 @@
-<h1>Customer#new</h1>
-<p>Find me in app/views/customer/new.html.erb</p>
+<section id='newcustomer'>
+	
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being 			saved:</h2>
+
+      <ul>
+      <% @customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h3>Please enter customer information</h3> 
+  <div>
+    <%= form_for @customer do |f| %>
+    <div>
+      <%= f.label :fname, 'First Name:' %>
+      <%= f.text_field :fname %>  
+    </div>
+    <div>
+      <%= f.label :lname, 'Last Name:' %>
+      <%= f.text_field :lname %>  
+    </div>
+    <div>
+      <%= f.label :phone, 'Phone Number:' %>
+      <%= f.number_field :phone %> 
+    </div>
+    <div>
+      <%= f.label :address, 'Address:' %>
+      <%= f.text_field :address %>  
+    </div>
+    <div>
+      <%= f.label :city, 'City:' %>
+      <%= f.text_field :city %>  
+    </div>
+		
+    <div>
+			<%= f.label :province_id, 'Province:' %>
+			<%= f.collection_select :province_id, Province.all, :id, :name %>
+    </div>
+    <div>
+      <%= f.label :postal_code, 'Postal Code:' %>
+      <%= f.text_field :postal_code %>  
+    </div>
+		
+    <div>
+      <%= f.label :email, 'Email:' %>
+      <%= f.text_field :email %>  
+    </div>
+		
+		
+    <div>
+      <%= f.submit "Continue", :class => 'btn btn-default btn-sm' %>
+    </div>
+  <%end%>
+  </div>
+</section>

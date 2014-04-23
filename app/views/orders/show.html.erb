@@ -1,2 +1,73 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<section id="summary">
+  <h4>Order Summary</h4>
+  
+  <div id="custinfo">
+    <h4>Your Personal Information:</h4>
+    <p><strong>Name:</strong> <%= @customer.fname %> <%= @customer.lname %></p>    
+		<p><strong>Phone number:</strong>  <%= @customer.phone %> </p>  
+		<p><strong>Email:</strong>  <%= @customer.email %> </p>  
+		<p><strong>Address:</strong>  <%= @customer.address %> </p>  
+		<p><strong>City:</strong>  <%= @customer.city %> </p>  
+		<p><strong>Province:</strong>  <%= @customer.province %> </p> 
+		<p><strong>Postal Code:</strong>  <%= @customer.postal_code %> </p> 
+  </div>
+  
+  <div id="orderinfo">
+    <h4>Your Order:</h4>   
+    <strong>Order Number:</strong> <%= @order.id %>
+    <strong>Order Status:</strong> <%= @order.order_status %>  
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Product Name</strong></th>
+          <th><strong>Quantity</strong></th>
+          <th><strong>Price</strong></th>
+          <th><strong>Total</strong></th>
+        </tr>
+      </thead>
+        <% subtotal = 0 %>
+        <% grandtotal = 0 %>
+        <tbody>    
+          <% @itmes_orderd.each_with_index do |order, i| %>
+
+          <% prod = Product.find(session[:items][i]) %>
+      
+          <tr>        
+            <td><%= prod.vendor_name %> <%= prod.product_name %></td>
+            <td><%= order.quantity %></td>            
+            <td><%= number_to_currency(order.price) %></td>
+            <td><%= number_to_currency(order.price * order.quantity) %></td>
+            <% subtotal += (order.price * order.quantity) %>
+          </tr>
+          
+          <%end%>
+      </tbody>
+        <tfoot>          
+          <% gst = subtotal * @order.gst_rate %>
+          <% pst = subtotal * @order.pst_rate %>
+          <tr>
+            <td colspan="3"><span class="bold">Subtotal:</span> </td>
+            <td><%= number_to_currency(subtotal) %></td>
+          </tr>
+        <% if gst > 0 then %>
+          <tr>
+            <td colspan="3"><strong>GST:</strong></td>
+            <td><%= number_to_currency(gst) %></td>
+          </tr>
+        <% end %>
+        <% if pst > 0 then %>
+          <tr>
+            <td colspan="3"><strong>PST:</strong></td>
+            <td><%= number_to_currency(pst) %></td>
+          </tr>
+        <% end %>
+          <tr>
+            <td colspan="3"><strong>Grand Total:</strong></td>
+            <% grandtotal = subtotal + gst + pst + hst %>
+            <td><%= number_to_currency(grandtotal) %></td>
+          </tr>
+        </tfoot>
+    </table>
+    <%= button_to "Submit Order", order_thanks_path, :method => 'get', class: "btn btn-default btn-sm" %>    
+  </div>
+</section>

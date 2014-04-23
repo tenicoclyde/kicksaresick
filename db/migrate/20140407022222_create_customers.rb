@@ -13,4 +13,5 @@ class CreateCustomers < ActiveRecord::Migration
       t.timestamps
     end
   end
+
 end

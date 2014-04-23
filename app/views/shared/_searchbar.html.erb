@@ -1,8 +1,15 @@
-
-
+<section id="searchncart">
+<div id="searchbar">
 <%= form_tag search_results_path, method: 'get' do %>
 
   <%= text_field_tag(:search_keywords) %>
   <%= select_tag (:category_option), options_from_collection_for_select(Category.all, :id, :name), prompt: "All Categories" %>
   <%= submit_tag "Search"%>
 <% end %>
+<div>
+	
+<div id="cartstat">
+	   	<%= link_to pluralize(@item_count, "item"), cart_path %>
+	    <%= link_to "Check out", new_customer_path %>
+</div>	
+<section>

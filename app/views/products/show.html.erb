@@ -1,14 +1,13 @@
-<p id="notice"><%= notice %></p>
+<section id="view_prod">
+<p>
+  <%= image_tag @product.image.url(:thumb) %>
+</p>
 
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @product.image.url(:thumb) %>
-</p>
 <p>
   <strong>Category:</strong>
   <%= @product.category_id %>
@@ -33,5 +32,18 @@
   <strong>Price:</strong>
   <%= @product.price %>
 </p>
+
+ <% if session[:items].include?(@product.id) then %>
+      <h4>This item is currently in your cart.</h4>
+    <% else %>      
+      <%= form_tag add_to_cart_path %>
+      <div>
+			  <%= label_tag 'qty', 'Quantity:' %>
+			  <%= text_field_tag 'qty', value="1" %>
+        <%= button_tag 'Add to Cart', data: {@product.id => :id, @qty => :qty}, class: "btn 		btn-default btn-sm" %>
+      </div>      
+    <%end%>    
+		
+<section>
 
 
