@@ -18,7 +18,7 @@
     <p>
 		<strong>Stocks Remaining: </strong>
 		<%= number_to_human product.quantity %>
-	</p>
+		</p>
     <p><strong>Price:</strong> <%= number_to_currency product.price%></p>
 	<% if product.onsale_price.present? %>
 	<p id="sale_price"><strong>Sale Price:</strong> <%= number_to_currency product.onsale_price%></p>

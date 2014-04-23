@@ -3,22 +3,14 @@
 <div id = "onsale">
 <% @sale_products.each do |product| %>
 
-	<p>
-	<strong><%= link_to product.name, product%></strong>
-	</p>
+	<p><strong><%= link_to product.name, product%></strong></p>
     <% if product.image.present? %>
-      <p>
-        <%= image_tag product.image.url(:thumb) %>
-      </p>
+      <p><%= image_tag product.image.url(:thumb) %></p>
     <% end %>
 	<p><%= product.description %></p>
-    <p>
-		<strong>Stocks Remaining: </strong>
-		<%= number_to_human product.quantity %>
-	</p>
-    <p><strong>Regular Price:</strong> <%= number_to_currency product.price%></p>
+  <p><strong>Stocks Remaining:</strong> <%= number_to_human product.quantity %></p>
+  <p><strong>Regular Price:</strong> <%= number_to_currency product.price%></p>
 	<p id="sale_price"><strong>Sale Price:</strong> <%= number_to_currency product.onsale_price%></p>
-<hr>
 <% end %>
 
 </div>

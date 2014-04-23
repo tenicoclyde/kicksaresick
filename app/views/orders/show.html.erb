@@ -8,18 +8,19 @@
 		<p><strong>Email:</strong>  <%= @customer.email %> </p>  
 		<p><strong>Address:</strong>  <%= @customer.address %> </p>  
 		<p><strong>City:</strong>  <%= @customer.city %> </p>  
-		<p><strong>Province:</strong>  <%= @customer.province %> </p> 
+		<p><strong>Province:</strong>  <%= @customer.province.name %> </p> 
 		<p><strong>Postal Code:</strong>  <%= @customer.postal_code %> </p> 
   </div>
   
-  <div id="orderinfo">
-    <h4>Your Order:</h4>   
-    <strong>Order Number:</strong> <%= @order.id %>
-    <strong>Order Status:</strong> <%= @order.status %>  
-    <table>
+  <div id="order_detail">
+    <h4>Order Details:</h4>   
+    <strong>Invoice Number:</strong> <%= @order.id %>
+    <strong>Status:</strong> <%= @order.status %>  
+    <table id="table_order">
       <thead>
         <tr>
-          <th><strong>Product Name</strong></th>
+          <th><strong>Item</strong></th>
+					<th></th>
           <th><strong>Quantity</strong></th>
           <th><strong>Price</strong></th>
           <th><strong>Total</strong></th>
@@ -33,6 +34,7 @@
           <% product = Product.find(session[:items][i]) %>
       
           <tr>        
+						<td><%= image_tag product.image.url(:thumb) %></td>
             <td><%= product.name %></td>
             <td><%= order.quantity %></td>            
             <td><%= number_to_currency(order.price) %></td>
@@ -46,8 +48,9 @@
 					        
           <% gst = @order.gst %>
           <% pst = @order.pst %>
+					
           <tr>
-            <td colspan="3"><span class="bold">Subtotal:</span> </td>
+            <td colspan="3" ><strong>Subtotal:</strong></td>
             <td><%= number_to_currency(subtotal) %></td>
           </tr>
         <% if gst > 0 then %>
@@ -70,5 +73,6 @@
         </tfoot>
     </table>
     <%= button_to "Submit Order", order_complete_path, :method => 'get', class: "btn btn-default btn-sm" %>    
+		<%= button_to "Cancel", root_path, :method => 'get', class: "btn btn-default btn-sm" %>    
   </div>
 </section>
