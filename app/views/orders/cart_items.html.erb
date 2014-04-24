@@ -25,12 +25,12 @@
 					 <%else%>
 					 <%@price = item.price%>
            <% end %>
-				<td><span class="saleprice"><%= number_to_currency(@price) %></span></td>  
+				<td><span class="sale_price"><%= number_to_currency(@price) %></span></td>  
 				<td><%= session[:quantities][i] %></td>     
         <td><%= number_to_currency(@price * session[:quantities][i]) %> 
 				<%@subtotal += @price * session[:quantities][i]%>
       </tr>
-    <%end%>
+    <% end %>
   </table>
   <div id="cart_total">
     <div>
@@ -43,5 +43,5 @@
   
   </div>
     
-<%end %>
+<% end %>
 </section>

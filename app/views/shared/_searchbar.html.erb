@@ -1,13 +1,11 @@
 <section id="searchncart">
 
-	
-<div id="searchbar">
+	<div id="searchbar">
 <%= form_tag search_results_path, method: 'get' do %>
 <%= image_tag("logo.jpg") %>
  	<span class="bar"><%= text_field_tag(:search_keywords) %></span>
  <%= select_tag (:category_option), options_from_collection_for_select(Category.all, :id, :name), prompt: "All Categories" %>
  <%= submit_tag "Search"%>
-</ul>
 <% end %>
 </div>
 	
@@ -15,6 +13,6 @@
 		<ul id="cartnav">
 	   	<li class="items"><%= link_to pluralize(@item_count, "item"), cart_path %></li>
 	    <li><%= link_to "Check out", new_customer_path %></li>
-			<ul>
+		</ul>
 </div>	
 </section>

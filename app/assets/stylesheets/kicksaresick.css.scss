@@ -57,15 +57,44 @@ body {
 	text-decoration:none;
 }
 
-#navlist a:link, #navlist a:visited{
+a:link, a:visited{
 	color:#000;
 	text-decoration:none;
 }
 
-#navlist a:hover{
+a:hover{
 	background-color:#ccc;
 };
 
+
+#sale_price{
+	color:red;
+}
+
+.img{
+	float:left;
+	border: 2px solid black;
+	padding:5px;
+	margin:0px 20px;
+}
+
+#onsale{
+	width:500px;
+	border: 2px solid black;
+	margin: 0 auto;
+	padding:3px;
+}
+
+#recent{
+	width:500px;
+	border: 2px solid black;
+	margin: 0 auto;
+	padding:3px;
+}
+
+#paginate{
+	padding:20px;
+}
 
 
 
